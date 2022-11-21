@@ -9,24 +9,25 @@ import { useRouter } from "next/router";
 function Navbar() {
   const [navOpen, setNavOpen] = useState(false);
   const [shadow, setShadow] = useState(false);
-  const [linkColor, setLinkColor] = useState('#1f2937');
+  const [NavBg, setNavBg] = useState("#ecf0f3");
+  const [linkColor, setLinkColor] = useState("#1f2937");
   const router = useRouter();
 
   useEffect(() => {
-    // if (
-    //   router.asPath === "/BloomTronics" ||
-    //   router.asPath === "/BloomNote" ||
-    //   router.asPath === "/BloomTube" ||
-    //   router.asPath === "/Bloom-Station" ||
-    //   router.asPath === "/BloomUI"
-    // ) {
-    //   setNavBg("transparent");
-    //   setLinkColor("#ecf0f3");
-    // } else {
-    //   setNavBg("#ecf0f3");
-    //   setLinkColor("#1f2937");
-    // }
-  }, []);
+    if (
+      router.asPath === "/BloomTronics" ||
+      router.asPath === "/BloomNote" ||
+      router.asPath === "/BloomTube" ||
+      router.asPath === "/Bloom-Station" ||
+      router.asPath === "/BloomUI"
+    ) {
+      setNavBg("transparent");
+      setLinkColor("#ecf0f3");
+    } else {
+      setNavBg("#ecf0f3");
+      setLinkColor("#1f2937");
+    }
+  }, [router]);
 
   useEffect(() => {
     const handleShadow = () => {
@@ -36,17 +37,6 @@ function Navbar() {
         setShadow(false);
       }
       window.addEventListener("scroll", handleShadow);
-      if (
-        router.asPath === "/BloomTronics" ||
-        router.asPath === "/BloomNote" ||
-        router.asPath === "/BloomTube" ||
-        router.asPath === "/Bloom-Station" ||
-        router.asPath === "/BloomUI"
-      ) {
-        setLinkColor("#ecf0f3");
-      } else {
-        setLinkColor("#1f2937");
-      }
     };
   }, []);
 
@@ -55,10 +45,11 @@ function Navbar() {
   };
   return (
     <div
+      style={{ backgroundColor: `${NavBg}` }}
       className={
         shadow
-          ? "fixed w-full h-20 shadow-xl z-[100] bg-[#ecf0f3] ease-in-out duration-300"
-          : "fixed w-full h-20 z-[100] bg-[#ecf0f3] "
+          ? "fixed w-full h-20 shadow-xl z-[100]  ease-in-out duration-300"
+          : "fixed w-full h-20 z-[100] "
       }
     >
       <div className="flex justify-between items-center w-full h-full px-2 2xl:px-10">
@@ -66,15 +57,21 @@ function Navbar() {
           <Image src={Logo} alt="/" width={100} />
         </Link>
         <div>
-          <ul style={{ color:`${linkColor}`}} className="hidden md:flex">
+          <ul style={{ color: `${linkColor}` }} className="hidden md:flex">
             <Link href="/#home">
-              <li className="ml-10 text-sm uppercase hover:border-b border-[#1f2937]">Home</li>
+              <li className="ml-10 text-sm uppercase hover:border-b border-[#1f2937]">
+                Home
+              </li>
             </Link>
             <Link href="/#about">
-              <li className="ml-10 text-sm uppercase hover:border-b border-[#1f2937]">About</li>
+              <li className="ml-10 text-sm uppercase hover:border-b border-[#1f2937]">
+                About
+              </li>
             </Link>
             <Link href="/#skills">
-              <li className="ml-10 text-sm uppercase hover:border-b border-[#1f2937]">Skills</li>
+              <li className="ml-10 text-sm uppercase hover:border-b border-[#1f2937]">
+                Skills
+              </li>
             </Link>
             <Link href="/#projects">
               <li className="ml-10 text-sm uppercase hover:border-b border-[#1f2937]">
