@@ -11,7 +11,7 @@ function Main() {
             Hi I'm <span className="text-[#5651e5]">Shrista</span>
           </h1>
           <h1 className="py-2 text-gray-700">A Front-End Web Developer</h1>
-          <p className="py-4 text-grey-600 max-w-[70%] m-auto">
+          <p className="py-4 text-grey-600 text-lg max-w-[70%] m-auto font-serif">
             I'm Frontend web Developer specializing in building exceptional
             digital experience. Currently I am focussed on building responsive
             front end web applications while learning back-end technologies

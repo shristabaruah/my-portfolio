@@ -64,7 +64,7 @@ function Navbar() {
               </li>
             </Link>
             <Link href="/#about">
-              <li className="ml-10 text-sm uppercase hover:border-b border-[#1f2937]">
+              <li className="ml-10 text-sm uppercase hover:border-b  border-[#1f2937]">
                 About
               </li>
             </Link>
@@ -91,6 +91,7 @@ function Navbar() {
       </div>
 
       <div
+        onClick={() => mobNavHandler()}
         className={
           navOpen
             ? "md:hidden fixed left-0 top-0 w-full h-screen bg-black/70"
